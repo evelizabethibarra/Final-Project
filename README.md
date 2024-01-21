@@ -55,3 +55,5 @@ Welcome to Sounds Scape - your gateway to connecting with fellow music lovers in
 
 [Visit Sounds Scape](link)
 
+theme: jekyll-theme-THEME-NAME
+
