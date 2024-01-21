@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+    <link rel="stylesheet" href="styles.css">
+    <title>Sounds Scape</title>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <!-- Sounds Scape logo that moves like a vinyl record -->
+            <img src="images/logo-no-background.png" alt="Sounds Scape Logo" class="logo animated-logo" id="logo">
+        </header>
+        <nav>
+            <button id="home-btn">Home</button>
+            <button id="login-btn">Login</button>
+            <button id="signup-btn">Signup</button>
+            <button id="profile-btn">Profile</button>
+        </nav>
+        <!-- The marquee was very interesting to do because of the speed  -->
+        <section class="marquee" >
+            <div class="marquee__track">
+                Discover kindred spirits based on your musical tastes. Find concert buddies and discussion partners.
+                Engage in meaningful conversations, share playlists, and build a network of friends who appreciate
+                music. 
+            </div>
+        </section>
+        <main class="main">
+            <div class="sections-wrapper">
+                <!-- Welcome Section that explains what the site is about -->
+                <section id="home" class="home active">
+                    <h1>Welcome to Sounds Scape</h1>
+                    <p>Your gateway to connecting with fellow music lovers in your city.</p>
+                    <a href="#membership" class="cta-btn">Join Now</a>
+                </section>
+
+                <!-- Membership Section that explains how it works -->
+                <section id="membership" class="membership">
+                    <h2>How It Works</h2>
+                    <p>Become a member and unlock a world of musical experiences.</p>
+                    <p>For just 11 euros per month, you get access to suggested events based on your music
+                        preferences, a community to hang out and special prices to events.</p>
+                    <a href="#signup" class="cta-btn">Sign Up Now</a>
+                </section>
+
+                <!-- Testimonials Section of the community that are added through JS-->
+                <section class="testimonials" id="testimonials">
+                    <h2>What Our Members Say</h2>
+                </section>
+
+                <!-- Gallery of cities where they have presence, they will be added with JS as well and they flip -->
+                <section class="gallery" id="gallery">
+                    <h2>Our Adventures Across Cities</h2>
+                    <div class="gallery-container"></div>
+                    <!-- City images with flip effect will be dynamically added here through JavaScript -->
+                </section>
+
+                <!-- Signup section -->
+                <aside id="signup" class="signup">
+                    <h2>Join Sounds Scape</h2>
+                    <!-- Signup Form -->
+                    <form id="signupForm" method="post" action="/signup">
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" name="name" required>
+
+                        <label for="lastName">Last Name:</label>
+                        <input type="text" id="lastName" name="lastName" required>
+
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required>
+
+                        <label for="whatsapp">WhatsApp:</label>
+                        <input type="tel" id="whatsapp" name="whatsapp" required>
+
+                        <label for="musicTastes">Music Tastes:</label>
+                        <select id="musicTastes" name="musicTastes[]" multiple required>
+                            <option value="jazz">Jazz</option>
+                            <option value="blues">Blues</option>
+                            <option value="rock">Rock</option>
+                            <option value="rnb">R&B</option>
+                            <option value="alternative">Alternative</option>
+                            <option value="folk">Folk</option>
+                            <option value="classical">Classical</option>
+                            <option value="electronic">Electronic</option>
+                            <option value="pop">Pop</option>
+                            <option value="indie">Indie</option>
+                            <option value="metal">Metal</option>
+                            <option value="reggae">Reggae</option>
+                            <!-- Here I tried to explore more with option and the genres -->
+                        </select>
+
+                        <label for="musicLink">Spotify/Apple Music Link:</label>
+                        <input type="url" id="musicLink" name="musicLink" placeholder="https://www.spotify.com"
+                            required>
+
+                        <label for="password">Password:</label>
+                        <input type="password" id="password" name="password" required>
+
+                        <!-- The payment information of a card-->
+                        <label for="cardNumber">Card Number:</label>
+                        <input type="text" id="cardNumber" name="cardNumber" placeholder="1234 5678 9012 3456" required>
+
+                        <label for="expiryDate">Expiry Date:</label>
+                        <input type="text" id="expiryDate" name="expiryDate" placeholder="MM/YY" required>
+
+                        <label for="cvv">CVV:</label>
+                        <input type="text" id="cvv" name="cvv" placeholder="123" required>
+
+                        <small>Payment info is for demo purposes only</small>
+                        <label for="termsCheckbox">
+                            <input type="checkbox" id="termsCheckbox" required>
+                            I agree to the <a href="#" onclick="showTermsPopup()">Terms and Conditions</a>
+                        </label>
+                        <button type="button" onclick="submitForm()">Submit</button>
+                    </form>
+
+
+                    <div id="termsPopup" class="popup">
+                        <div class="popup-content">
+                            <span class="close" onclick="hideTermsPopup()">&times;</span>
+                            <!-- This is the pop-up of T&C, I tried giving it a way to close -->
+                            <p>Terms and Conditions.</p>
+                        </div>
+                    </div>
+
+                </aside>
+                <!-- Login Form as a pop-up -->
+                <section class="login-form" id="login-form">
+                    <h2>Member Login</h2>
+                    <form id="loginform">
+                        <label for="loginEmail">Email:</label>
+                        <input type="email" id="loginEmail" name="loginEmail" required>
+
+                        <label for="loginPassword">Password:</label>
+                        <input type="password" id="loginPassword" name="loginPassword" required>
+
+                        <button type="button" onclick="simulateLogin()">Log In</button>
+                    </form>
+                </section>
+
+                <!-- Profile Section of Ella, this is a pop-up because I wanted to try with longer texts and images in a pop-up -->
+                <section class="profile" id="profile">
+                    <div class="profile-container">
+                        <div class="profile-picture"></div>
+                        <h2>Ella's Profile</h2>
+                        <!-- Attended event cards are added here with JS -->
+                        <div class="event-card">
+                            <h3>January Events</h3>
+                            <div class="event">
+                                <p>Concert 1</p>
+                                <button onclick="joinEvent(this)">Join</button>
+                            </div>
+                            <div class="event">
+                                <p>Concert 2</p>
+                                <button onclick="joinEvent(this)">Join</button>
+                            </div>
+                            <div class="event">
+                                <p>Concert 3</p>
+                                <button onclick="joinEvent(this)">Join</button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+
+        <footer>
+            <!-- This was my way to explore with a different footer -->
+            <div class="dotted-frame">
+                <div>
+                    <p>Share what you most love with others that love it too.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>

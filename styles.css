@@ -1,0 +1,478 @@
+:root {
+    /* I tried to play with the names and colors */
+    --main-bg: #FFFFFF;
+    --main-font-color: #000000;
+    --accent-bg: #e7bff3;
+    --accent-font-color: #000000;
+    --cta-bg: #b0a7a7;
+    --cta-font-color: #000000;
+    --cta-hover-bg: #61777F;
+    --cta-hover-font-color: #FFFFFF;
+    --dark-bg: #242424;
+    --dark-font-color: #ffffff;
+    --light-bg: #fafafa;
+    --light-font-color: #ffffff;
+    --gray-bg: #f6f6f6;
+    --testimonial-bg: #eaeaea;
+    --profile-border-color: #d86130;
+    --footer-border-color: #d86130;
+    --gallery-bg: #a98baf;
+    --flip-font-color: #FFFFFF;
+}
+
+/* Styles for the animated logo that spins */
+body {
+    font-family: 'Archivo', sans-serif;
+    margin: 0;
+    padding: 0;
+    font-size: 1em;
+}
+
+.container {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: var(--dark-bg);
+    color: var(--dark-font-color);
+    padding: 1em;
+    text-align: center;
+}
+
+.logo {
+    width: 10em;
+    padding: 1em;
+}
+
+.animated-logo {
+    animation: spin 20s infinite linear;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Navigation styles to increase the size font, change the color and to explore the experience */
+nav {
+    display: flex;
+    justify-content: space-around;
+    background-color: var(--dark-bg);
+    padding: 1em;
+}
+
+nav button {
+    color: var(--light-font-color);
+    background-color: transparent;
+    border: none;
+    padding: 0.5em 1em;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: normal;
+    transition: color 0.3s, font-size 0.3s;
+}
+
+nav button:hover {
+    color: var(--accent-bg);
+    font-size: 1.5em;
+}
+
+/* Section styles */
+
+
+main {
+    margin-top: 2em;
+}
+
+.welcome,
+.membership,
+.testimonials,
+.gallery,
+.signup,
+.login-form,
+.popup,
+.profile {
+    padding: 2em;
+}
+.home {
+    margin: 1rem
+}
+/* Testimonial styles and image */
+.testimonial {
+    margin-bottom: 1em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: left;
+    border-radius: 0.625em;
+    overflow: hidden;
+}
+
+.testimonial img {
+    border-radius: 50%;
+    margin-right: 0.625em;
+    max-height: 40px;
+}
+
+/* Gallery styles and transition to flip the image */
+.gallery {
+    background-color: var(--gallery-bg);
+    text-align: center;
+    overflow: hidden;
+}
+
+.gallery-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
+    gap: 1em;
+}
+
+.flip-container {
+    margin-bottom: 1em;
+    width: 100%;
+    perspective: 1000px;
+}
+
+.flip-container:hover .flipper {
+    transform: rotateY(180deg);
+}
+
+.flipper {
+    transform-style: preserve-3d;
+    transition: transform 0.5s;
+}
+
+.front,
+.back {
+    width: 100%;
+    height: 10em;
+    backface-visibility: hidden;
+}
+
+.front {
+    
+    align-items: center;
+    justify-content: center;
+    background: #ddd;
+}
+
+.back {
+    transform: rotateY(180deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #ccc;
+}
+
+.back p {
+    color: var(--flip-font-color);
+}
+
+.city-img {
+    background-size: cover;
+    background-position: center;
+    height: 20em;
+    margin-bottom: 1em;
+}
+
+/* Call to action button styles */
+.cta-btn {
+    display: inline-block;
+    padding: 1em 2em;
+    margin-top: 1em;
+    background-color: var(--dark-bg);
+    color: var(--dark-font-color);
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 0.3125em;
+    transition: background-color 0.3s;
+}
+
+.cta-btn:hover {
+    background-color: var(--cta-hover-bg);
+    color: var(--cta-hover-font-color);
+}
+
+/* sign up styles */
+.signup form {
+    max-width: 25em;
+    margin: 0 auto;
+    text-align: center;
+}
+
+h2 {
+    text-align: center;
+}
+
+.signup label {
+    display: block;
+    margin-top: 1em;
+}
+
+.signup input {
+    width: 100%;
+    padding: 0.5em;
+    margin-top: 0.5em;
+    border: 0.125em solid #ccc;
+    border-radius: 0.375em;
+}
+
+.signup small {
+    display: block;
+    margin-top: 0.5em;
+    color: #888;
+}
+
+.signup button {
+    background-color: var(--dark-bg);
+    color: var(--dark-font-color);
+    padding: 0.8em 1em;
+    border: none;
+    border-radius: 0.3125em;
+    cursor: pointer;
+    margin-top: 1em;
+    transition: background-color 0.3s;
+}
+
+.signup button:hover {
+    background-color: var(--cta-hover-bg);
+    color: var(--cta-hover-font-color);
+}
+
+/* Popup styles for the profile and for the login */
+.popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    align-items: center;
+    justify-content: center;
+}
+
+.popup-content {
+    background-color: #fefefe;
+    padding: 2em;
+    border-radius: 0.625em;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 1.75em;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: black;
+}
+
+/* Login form styles */
+.login-form {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--main-bg);
+    padding: 2em;
+    z-index: 2;
+}
+
+.login-form form {
+    max-width: 25em;
+    margin: 0 auto;
+}
+
+.login-form label {
+    display: block;
+    margin-top: 1em;
+}
+
+.login-form input {
+    width: 100%;
+    padding: 0.5em;
+    margin-top: 0.5em;
+    border: 0.0625em solid #ccc;
+}
+
+.login-form button {
+    background-color: var(--dark-bg);
+    color: var(--dark-font-color);
+    padding: 0.8em 1em;
+    border: none;
+    border-radius: 0.3125em;
+    cursor: pointer;
+    margin-top: 1em;
+    transition: background-color 0.3s;
+}
+
+.login-form button:hover {
+    background-color: var(--cta-hover-bg);
+    color: var(--cta-hover-font-color);
+}
+
+/* Dotted frame style */
+.dotted-frame {
+    border: 0.0625em dashed var(--footer-border-color);
+    margin-top: 1.25em;
+    margin-bottom: 1.25em;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+/* Profile styles */
+.profile {
+    display: none;
+    background-color: var(--main-bg);
+    padding: 2em;
+    text-align: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+}
+
+.profile-info {
+    text-align: center;
+}
+
+.profile-img {
+    width: 6.25em;
+    height: 6.25em;
+    background-size: cover;
+    background-position: center;
+    border-radius: 50%;
+    margin-bottom: 0.625em;
+    margin-left: 6rem
+}
+
+.event-card {
+    margin-top: 1.25em;
+}
+
+.event-card h3 {
+    font-size: 1.25em;
+    margin-bottom: 0.625em;
+}
+
+.event {
+    margin-bottom: 0.625em;
+}
+
+/* Join button styles, I was trying to achieve the joined status */
+.event button {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    padding: 0.5em 1em;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 0.875em;
+    cursor: pointer;
+    border-radius: 0.25em;
+    transition: background-color 0.3s;
+}
+
+.event button:hover {
+    background-color: #45a049;
+}
+
+.event button[disabled] {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 767px) {
+    /* Adjustments for small screens */
+    body {
+        font-size: 14px;
+    }
+
+    .container {
+        padding: 0;
+    }
+
+    nav button {
+        font-size: 0.875em;
+    }
+
+    .logo {
+        width: 8em;
+        padding: 0.5em;
+    }
+
+    
+}
+
+@media screen and (min-width: 768px) {
+    /* For larger screens */
+    body {
+        font-size: 18px;
+    }
+
+    .container {
+        padding: 0;
+    }
+
+    nav button {
+        font-size: 1.125em;
+    }
+
+    .logo {
+        width: 12em;
+        padding: 1em;
+    }
+
+    
+}
+
+/* Marquee styles, this was a fun one */
+@media screen and (max-width: 767px) {
+    .marquee__track {
+        width: 600vw;
+        font-size: 12px;
+        animation: marquee 40s linear infinite;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .marquee__track {
+        width: 750vw;
+        height: 24px;
+        position: absolute;
+        font-size: 2em;
+        white-space: nowrap;
+        letter-spacing: .01em;
+        text-transform: uppercase;
+        animation: marquee 40s linear infinite;
+        will-change: transform;
+    }
+}
+
+@keyframes marquee {
+    0% {
+        transform: translateX(100%);
+    }
+
+    100% {
+        transform: translateX(-100%);
+    }
+}
+.marquee {
+    position: relative;
+    text-transform: uppercase;
+}
