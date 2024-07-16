@@ -49,7 +49,7 @@ Welcome to Sounds Scape - your gateway to connecting with fellow music lovers in
 
 ### Preview
 
-![Sounds Scape Preview](images/ui_ss.png)
+![Sounds Scape Preview](images/ui_ss.webp)
 
 ### Website Link
 
